@@ -1,0 +1,15 @@
+[
+    {
+      "question": "Reactは何のライブラリですか？",
+      "options": ["UI", "データベース", "サーバー", "スタイル"],
+      "answer": 0,
+      "explanation": "ReactはUI（ユーザーインターフェイス）を構築するためのライブラリです。"
+    },
+    {
+      "question": "JavaScriptの変数宣言で使うキーワードはどれですか？",
+      "options": ["var", "const", "let", "すべて"],
+      "answer": 3,
+      "explanation": "JavaScriptではvar, const, letすべてが使えますが、使い方には違いがあります。"
+    }
+  ]
+  

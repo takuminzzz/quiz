@@ -1,0 +1,23 @@
+.button {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: black; /* 数字の色を黒に設定 */
+  background-color: white;
+  border: 1px solid gray;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background-color: #f0f8ff; /* ホバー時の背景色変更（任意） */
+}
+
+.button.selected {
+  border: 2px solid blue;
+  background-color: #f0f8ff;
+}
