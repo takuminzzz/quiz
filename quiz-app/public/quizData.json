@@ -1,15 +1,123 @@
 [
     {
-      "question": "Reactは何のライブラリですか？",
-      "options": ["UI", "データベース", "サーバー", "スタイル"],
+      "question": "次のコードの結果は何ですか？ let x = 10; let result = x > 5 ? 'A' : 'B';",
+      "options": ["A", "B", "undefined", "10"],
       "answer": 0,
-      "explanation": "ReactはUI（ユーザーインターフェイス）を構築するためのライブラリです。"
+      "explanation": "条件 'x > 5' はtrueなので、三項演算子は 'A' を返します。"
     },
     {
-      "question": "JavaScriptの変数宣言で使うキーワードはどれですか？",
-      "options": ["var", "const", "let", "すべて"],
-      "answer": 3,
-      "explanation": "JavaScriptではvar, const, letすべてが使えますが、使い方には違いがあります。"
+      "question": "次のコードの結果は何ですか？ let y = 0; let result = y ? 'Positive' : 'Zero';",
+      "options": ["Positive", "Zero", "0", "undefined"],
+      "answer": 1,
+      "explanation": "yが0の場合、条件はfalseなので、三項演算子は 'Zero' を返します。"
+    },
+    {
+      "question": "次のコードの結果は何ですか？ let z = 15; let result = z % 2 === 0 ? 'Even' : 'Odd';",
+      "options": ["Even", "Odd", "true", "false"],
+      "answer": 1,
+      "explanation": "zが15の場合、条件 'z % 2 === 0' はfalseなので、'Odd' を返します。"
+    },
+    {
+      "question": "次のコードの結果は何ですか？ let a = 8; let result = a > 10 ? 'High' : a > 5 ? 'Medium' : 'Low';",
+      "options": ["High", "Medium", "Low", "undefined"],
+      "answer": 1,
+      "explanation": "条件 'a > 10' はfalseですが、'a > 5' はtrueなので 'Medium' を返します。"
+    },
+    {
+      "question": "次のコードの結果は何ですか？ let b = true; let result = b ? 'Yes' : 'No';",
+      "options": ["Yes", "No", "true", "undefined"],
+      "answer": 0,
+      "explanation": "bがtrueなので、三項演算子は 'Yes' を返します。"
+    },
+    {
+      "question": "次のコードの結果は何ですか？ let c = false; let result = c ? 'Go' : 'Stop';",
+      "options": ["Go", "Stop", "false", "undefined"],
+      "answer": 1,
+      "explanation": "cがfalseなので、三項演算子は 'Stop' を返します。"
+    },
+    {
+      "question": "次のコードの結果は何ですか？ let score = 75; let grade = score > 90 ? 'A' : score > 75 ? 'B' : 'C';",
+      "options": ["A", "B", "C", "D"],
+      "answer": 2,
+      "explanation": "scoreが75の場合、両方の条件がfalseなので 'C' を返します。"
+    },
+    {
+      "question": "次のコードの結果は何ですか？ let n = null; let result = n ? 'Valid' : 'Invalid';",
+      "options": ["Valid", "Invalid", "null", "undefined"],
+      "answer": 1,
+      "explanation": "nがnullの場合、条件はfalseなので 'Invalid' を返します。"
+    },
+    {
+      "question": "次のコードの結果は何ですか？ let str = ''; let result = str ? 'Not Empty' : 'Empty';",
+      "options": ["Not Empty", "Empty", "undefined", "null"],
+      "answer": 1,
+      "explanation": "空文字列はfalseと評価されるので 'Empty' を返します。"
+    },
+    {
+      "question": "次のコードの結果は何ですか？ let value = undefined; let result = value ? 'Defined' : 'Undefined';",
+      "options": ["Defined", "Undefined", "null", "error"],
+      "answer": 1,
+      "explanation": "valueがundefinedの場合、条件はfalseなので 'Undefined' を返します。"
+    },
+    {
+      "question": "次のコードの結果は何ですか？ let num = 20; let result = num < 10 ? 'Small' : num > 30 ? 'Large' : 'Medium';",
+      "options": ["Small", "Medium", "Large", "undefined"],
+      "answer": 1,
+      "explanation": "numが20の場合、どちらの条件も該当しないので 'Medium' を返します。"
+    },
+    {
+      "question": "次のコードの結果は何ですか？ let age = 18; let status = age >= 18 ? 'Adult' : 'Minor';",
+      "options": ["Adult", "Minor", "Teenager", "undefined"],
+      "answer": 0,
+      "explanation": "ageが18の場合、条件 'age >= 18' がtrueなので 'Adult' を返します。"
+    },
+    {
+      "question": "次のコードの結果は何ですか？ let color = 'red'; let result = color === 'blue' ? 'Cold' : 'Warm';",
+      "options": ["Cold", "Warm", "undefined", "Error"],
+      "answer": 1,
+      "explanation": "colorが'red'の場合、条件はfalseなので 'Warm' を返します。"
+    },
+    {
+      "question": "次のコードの結果は何ですか？ let isSunny = true; let activity = isSunny ? 'Beach' : 'Home';",
+      "options": ["Beach", "Home", "Rain", "undefined"],
+      "answer": 0,
+      "explanation": "isSunnyがtrueなので、三項演算子は 'Beach' を返します。"
+    },
+    {
+      "question": "次のコードの結果は何ですか？ let isLoggedIn = false; let page = isLoggedIn ? 'Dashboard' : 'Login';",
+      "options": ["Dashboard", "Login", "Error", "undefined"],
+      "answer": 1,
+      "explanation": "isLoggedInがfalseなので、三項演算子は 'Login' を返します。"
+    },
+    {
+      "question": "次のコードの結果は何ですか？ let items = 5; let result = items > 0 ? 'In Stock' : 'Out of Stock';",
+      "options": ["In Stock", "Out of Stock", "Error", "undefined"],
+      "answer": 0,
+      "explanation": "itemsが5の場合、条件 'items > 0' がtrueなので 'In Stock' を返します。"
+    },
+    {
+      "question": "次のコードの結果は何ですか？ let temperature = -5; let weather = temperature < 0 ? 'Cold' : 'Warm';",
+      "options": ["Cold", "Warm", "undefined", "Error"],
+      "answer": 0,
+      "explanation": "temperatureが-5の場合、条件 'temperature < 0' がtrueなので 'Cold' を返します。"
+    },
+    {
+      "question": "次のコードの結果は何ですか？ let speed = 100; let status = speed > 120 ? 'Over Speeding' : 'Normal';",
+      "options": ["Over Speeding", "Normal", "Error", "undefined"],
+      "answer": 1,
+      "explanation": "speedが100の場合、条件 'speed > 120' がfalseなので 'Normal' を返します。"
+    },
+    {
+      "question": "次のコードの結果は何ですか？ let grade = 'B'; let result = grade === 'A' ? 'Excellent' : 'Good';",
+      "options": ["Excellent", "Good", "undefined", "Error"],
+      "answer": 1,
+      "explanation": "gradeが'B'の場合、条件はfalseなので 'Good' を返します。"
+    },
+    {
+      "question": "次のコードの結果は何ですか？ let height = 180; let category = height > 170 ? 'Tall' : 'Short';",
+      "options": ["Tall", "Short", "Medium", "undefined"],
+      "answer": 0,
+      "explanation": "heightが180の場合、条件 'height > 170' がtrueなので 'Tall' を返します。"
     }
   ]
   
