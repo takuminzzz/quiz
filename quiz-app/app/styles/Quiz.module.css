@@ -1,0 +1,64 @@
+.container {
+  max-width: 90%; /* モバイルでは幅を広く */
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  background-color: #ffffff; /* 背景色を白に設定 */
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.question {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333333; /* 他の文字と同じ色に変更 */
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.optionButton {
+  padding: 15px;
+  font-size: 1.2rem;
+  background-color: white;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.optionButton:hover {
+  background-color: #f0f8ff;
+}
+
+.optionButton.correct {
+  background-color: #d4edda; /* 正解時: 緑色 */
+  border-color: #28a745;
+  color: #155724;
+}
+
+.optionButton.wrong {
+  background-color: #f8d7da; /* 不正解時: 赤色 */
+  border-color: #dc3545;
+  color: #721c24;
+}
+
+.explanation {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #ffffff; /* 背景色を白に設定 */
+  color: #333; /* テキストを濃いグレーに */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 600px; /* タブレット以上では幅を固定 */
+  }
+}
