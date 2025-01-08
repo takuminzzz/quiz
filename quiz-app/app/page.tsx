@@ -24,7 +24,7 @@ export default function Home() {
     setShowExplanation(true);
 
     if (isAnswerCorrect) {
-      alert("正解です！"); // 正解時のアラートを追加
+      alert("正解です！"); // 正解時のアラート
       setTimeout(() => nextQuestion(), 2000);
     }
   };
@@ -67,7 +67,15 @@ export default function Home() {
           {isCorrect ? (
             <p>正解です！次の問題に進みます。</p>
           ) : (
-            <p>{quizData[currentQuestionIndex].explanation}</p>
+            <div>
+              <p>{quizData[currentQuestionIndex].explanation}</p>
+              <button
+                onClick={nextQuestion}
+                className={styles.nextButton} // 「次の問題へ」ボタン
+              >
+                次の問題へ
+              </button>
+            </div>
           )}
         </div>
       )}
