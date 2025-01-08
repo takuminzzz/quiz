@@ -1,11 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import styles from "./styles/Quiz.module.css";
 
 export default function Home() {
   const [quizData, setQuizData] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [showExplanation, setShowExplanation] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(false);
 
   useEffect(() => {
     fetch("/quizData.json")
@@ -15,16 +18,20 @@ export default function Home() {
   }, []);
 
   const handleOptionClick = (index: number) => {
-    if (index === quizData[currentQuestionIndex].answer) {
-      alert("当たり！");
-      nextQuestion();
-    } else {
-      setShowExplanation(true);
+    const isAnswerCorrect = index === quizData[currentQuestionIndex].answer;
+    setIsCorrect(isAnswerCorrect);
+    setSelectedOption(index);
+    setShowExplanation(true);
+
+    if (isAnswerCorrect) {
+      alert("正解です！"); // 正解時のアラート
+      setTimeout(() => nextQuestion(), 2000);
     }
   };
 
   const nextQuestion = () => {
     setShowExplanation(false);
+    setSelectedOption(null);
     setCurrentQuestionIndex((prev) => (prev + 1) % quizData.length);
   };
 
@@ -33,70 +40,43 @@ export default function Home() {
   const currentQuestion = quizData[currentQuestionIndex];
 
   return (
-    <div style={{ padding: "20px", color: "#fff", backgroundColor: "#000" }}>
-      <h1>クイズアプリ</h1>
-      <h2>{currentQuestion.question}</h2>
-      <ul style={{ listStyle: "none", padding: 0 }}>
+    <div className={styles.container}>
+      <h1 className={styles.question}>{currentQuestion.question}</h1>
+      <div className={styles.options}>
         {currentQuestion.options.map((option: string, index: number) => (
-          <li
-            key={index}
-            style={{
-              marginBottom: "10px",
-              fontSize: "18px",
-            }}
-          >
-            {`${index + 1}. ${option}`}
-          </li>
-        ))}
-      </ul>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          marginTop: "20px",
-          gap: "10px",
-        }}
-      >
-        {currentQuestion.options.map((_, index: number) => (
           <button
             key={index}
-            onClick={() => handleOptionClick(index)} // クリックで即時反映
-            style={{
-              padding: "10px",
-              border: "1px solid gray",
-              backgroundColor: "#fff",
-              cursor: "pointer",
-              width: "60px",
-              height: "60px",
-              textAlign: "center",
-              fontWeight: "bold",
-              fontSize: "18px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              color: "black", // ボタンの文字色を黒
-            }}
+            onClick={() => handleOptionClick(index)}
+            className={`${styles.optionButton} ${
+              showExplanation
+                ? index === quizData[currentQuestionIndex].answer
+                  ? styles.correct
+                  : selectedOption === index
+                  ? styles.wrong
+                  : ""
+                : ""
+            }`}
+            disabled={showExplanation} // 正誤判定中はボタンを無効化
           >
-            {index + 1}
+            {option}
           </button>
         ))}
       </div>
       {showExplanation && (
-        <div style={{ marginTop: "20px", color: "red" }}>
-          <strong>間違い！</strong>
-          <p>{currentQuestion.explanation}</p>
-          <button
-            onClick={nextQuestion}
-            style={{
-              marginTop: "10px",
-              padding: "10px 20px",
-              backgroundColor: "blue",
-              color: "white",
-              cursor: "pointer",
-            }}
-          >
-            次の問題へ
-          </button>
+        <div className={styles.explanation}>
+          {isCorrect ? (
+            <p>正解です！次の問題に進みます。</p>
+          ) : (
+            <div>
+              <p>{quizData[currentQuestionIndex].explanation}</p>
+              <button
+                onClick={nextQuestion}
+                className={styles.nextButton} // 「次の問題へ」ボタン
+              >
+                次の問題へ
+              </button>
+            </div>
+          )}
         </div>
       )}
     </div>
